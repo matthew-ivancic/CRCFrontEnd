@@ -22,4 +22,4 @@ jobs:
           role-to-assume: arn:aws:iam::509910665149:role/GitActionsRole
           aws-region: us-east-2
       - name: S3 copy
-        run: aws s3 sync './s3Files/.'  s3://www.resume.mivancic.com --delete
+        run: aws s3 sync ./S3Files/.  s3://www.resume.mivancic.com --delete
