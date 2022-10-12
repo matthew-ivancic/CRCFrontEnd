@@ -24,4 +24,4 @@ jobs:
       - name: empty the bucket
         run: aws s3 rm s3://www.resume.mivancic.com --recursive
       - name: upload files to bucket
-        run: aws s3 sync ./S3Files/.  s3://www.resume.mivancic.com  --acl-public-read
+        run: aws s3 sync ./S3Files/.  s3://www.resume.mivancic.com
