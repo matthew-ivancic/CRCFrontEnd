@@ -25,7 +25,23 @@ body { font-family: Georgia; color: #444; }
 #hd { margin: 2.5em 0 3em 0; padding-bottom: 1.5em; border-bottom: 1px solid #ccc }
 #hd h2 { text-transform: uppercase; letter-spacing: 2px; }
 #bd, #ft { margin-bottom: 2em; }
+.header {
+    margin: 0 auto;
+    width: 800px;
+    display: flex;
+    align-items: start;
+}
 
+.header-left {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
 /* //-- footer -- */
 #ft { padding: 1em 0 5em 0; font-size: 92%; border-top: 1px solid #ccc; text-align: center; }
 #ft p { margin-bottom: 0; text-align: center;   }
@@ -42,7 +58,7 @@ strong { font-weight: bold; }
 li { line-height: 24px; border-bottom: 1px solid #ccc; }
 p.enlarge { font-size: 144%; padding-right: 6.5em; line-height: 24px; }
 p.enlarge span { color: #000 }
-.contact-info { margin-top: 7px; }
+.contact-info { margin-top: 7px; float: right; }
 .first h2 { font-style: italic; }
 .last { border-bottom: 0 }
 
@@ -61,8 +77,15 @@ a#pdf:hover { background: #222; }
 .skills-list ul { margin: 0; }
 .skills-list li { margin: 3px 0; padding: 3px 0; }
 .skills-list li span { font-size: 152%; display: block; margin-bottom: -2px; padding: 0 }
-.talent { width: 25%; float: left }
-.talent h2 { margin-bottom: 6px; }
+
+.talent-left h2 { margin-bottom: 6px; }
+.talent-center h2 { margin-bottom: 6px; }
+.talent-right h2 { margin-bottom: 6px; }
+
+.talents { 
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+}
 
 #srt-ttab { margin-bottom: 100px; text-align: center;  }
 #srt-ttab img.last { margin-top: 20px }
