@@ -1,0 +1,30 @@
+
+name: Upload Index.html and style.css
+
+on:
+  push:
+    branches:
+      - main
+      
+permissions:
+  id-token: write
+  contents: read
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: us-east-2
+      - name: empty the bucket
+        run: aws s3 rm s3://www.resume.mivancic.com --recursive
+      - name: upload files to bucket
+        run: aws s3 sync ./S3Files/.  s3://www.resume.mivancic.com
+      - name: invalidate the Cloudfront Distribution
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION }} --paths "/*"
+
